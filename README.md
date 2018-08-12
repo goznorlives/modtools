@@ -7,4 +7,4 @@ Scritps for managing and updating Minetest mods with git. Derived from work I di
 * importall.sh: import all of the mods in modlist.txt at once
 * update.sh: update one mod from its remote
 * updateall.sh: update all of the mods in modlist.txt from their remotes
-
+* delete.sh: delete a named mod (not that I expect anyone would need it)
