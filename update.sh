@@ -1,19 +1,16 @@
-#!/bin/bash
+#! /bin/bash
 
-REMOTE=$1
+# TODO Allow config of this
+MODROOT=..
 
-if git remote | grep "${REMOTE}" > /dev/null; then
-	git checkout "${REMOTE}_master" || exit 1
-	git pull
-	git checkout master
-	git merge --squash -s subtree --no-commit --allow-unrelated-histories "${REMOTE}_master"
+NAME=$1
+
+if [ -d $MODROOT/$NAME ]; then
+	pushd $MODROOT/$NAME > /dev/null
+	echo UPDATE $NAME
+	git pull --ff-only
+	popd > /dev/null
 else
-	REPO_URL="$(grep $REMOTE remotes.txt | cut -f2 -d' ')" 
-
-	if ! [ -z $REPO_URL ]; then
-		git remote add -f $REMOTE $REPO_URL
-	else
-		echo "Remote $REMOTE didn't exist and wasn't in remotes.txt."
-		exit 1
-	fi
+	echo Mod $NAME does not exist!
+	exit 1
 fi

@@ -1,8 +1,9 @@
-#!/bin/bash
+#! /bin/bash
 
-for dir in */
-do
-	echo "UPDATING ${dir%/}"
-	./update.sh ${dir%/}
-	echo
+# TODO Allow config of this
+MODROOT=..
+
+cat modlist.txt | while read LINE; do
+	NAME="$( echo $LINE | cut -f1 -d' ' )"
+	update.sh $NAME
 done
