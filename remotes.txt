@@ -1,0 +1,10 @@
+charcoal https://gitlab.com/VanessaE/charcoal.git
+digilines https://github.com/minetest-mods/digilines.git
+intllib https://github.com/minetest-mods/intllib.git
+mesecons https://github.com/minetest-mods/mesecons.git
+moreblocks https://github.com/minetest-mods/moreblocks.git
+pipeworks https://gitlab.com/VanessaE/pipeworks.git
+technic https://github.com/minetest-mods/technic.git
+unified_inventory https://github.com/minetest-mods/unified_inventory.git
+unifiedbricks https://gitlab.com/VanessaE/unifiedbricks.git
+unifieddyes https://gitlab.com/VanessaE/unifieddyes.git
