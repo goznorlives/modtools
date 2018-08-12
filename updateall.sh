@@ -1,8 +1,8 @@
 #! /bin/bash
 
-. config
+. .config/config
 
-cat modlist.txt | while read LINE; do
+cat .config/modlist.txt | while read LINE; do
 	NAME="$( echo $LINE | cut -f1 -d' ' )"
 
 	./update.sh $NAME

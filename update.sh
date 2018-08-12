@@ -1,6 +1,6 @@
 #! /bin/bash
 
-. config
+. .config/config
 
 NAME=$1
 
@@ -14,4 +14,7 @@ if ! [ -d $MODROOT/$NAME ]; then
 fi
 
 echo UPDATE $NAME
-(cd $MODROOT/$NAME; git pull --ff-only)
+(
+	cd $MODROOT/$NAME
+	git pull --ff-only
+)
