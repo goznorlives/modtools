@@ -7,4 +7,5 @@ cat modlist.txt | while read LINE; do
 	REPO_URL="$( echo $LINE | cut -f2 -d' ' )"
 
 	./import.sh $NAME $REPO_URL
+	echo
 done
