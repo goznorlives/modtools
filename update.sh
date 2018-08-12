@@ -1,7 +1,6 @@
 #! /bin/bash
 
-# TODO Allow config of this
-MODROOT=..
+. config
 
 NAME=$1
 

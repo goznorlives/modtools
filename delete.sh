@@ -2,9 +2,13 @@
 
 # For the sake of completeness...
 
-# TODO Allow config of this
-MODROOT=..
+. config
 
 NAME=$1
 
-rm -rI $MODROOT/$NAME
+if [ -d $MODROOT/$NAME ]; then
+	rm -rI $MODROOT/$NAME
+else
+	echo Mod $NAME did not exist!
+	exit 1
+fi
