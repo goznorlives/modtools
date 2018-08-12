@@ -4,12 +4,14 @@
 
 NAME=$1
 
-if [ -d $MODROOT/$NAME ]; then
-	pushd $MODROOT/$NAME > /dev/null
-	echo UPDATE $NAME
-	git pull --ff-only
-	popd > /dev/null
-else
-	echo Mod $NAME does not exist!
+if [ -z $1 ]; then
+	echo "Mod name is required!"
 	exit 1
 fi
+if ! [ -d $MODROOT/$NAME ]; then
+	echo "Mod $NAME does not exist!"
+	exit 1
+fi
+
+echo UPDATE $NAME
+(cd $MODROOT/$NAME; git pull --ff-only)

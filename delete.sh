@@ -6,9 +6,15 @@
 
 NAME=$1
 
-if [ -d $MODROOT/$NAME ]; then
-	rm -rI $MODROOT/$NAME
-else
+if [ -z $NAME ]; then
+	echo A mod name is required!
+	exit 1
+fi
+if ! [ -d $MODROOT/$NAME ]; then
 	echo Mod $NAME did not exist!
 	exit 1
 fi
+
+rm -rI $MODROOT/$NAME
+mv modlist.txt modlist.bak
+(cat modlist.txt | grep -v $NAME) > modlist.txt
