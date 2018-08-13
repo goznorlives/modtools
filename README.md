@@ -13,7 +13,7 @@ Scritps for managing and updating Minetest mods with git. Derived from work I di
 * addmod.sh: add a mod to the mod list
 * rmmod.sh: remove a mod from the mod list
 
-
+Configuration:
 * .config/config: configuration
-** MODROOT - path to .minetest/mods
+    * MODROOT - path to .minetest/mods
 * .config/modlist.txt: list of mods that have been/will be imported.
