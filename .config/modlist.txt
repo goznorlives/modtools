@@ -11,3 +11,4 @@ unifieddyes https://gitlab.com/VanessaE/unifieddyes.git
 invtweak https://github.com/BlockMen/invtweak.git
 telemosaic https://github.com/bendeutsch/minetest-telemosaic.git
 xdecor https://github.com/minetest-mods/xdecor.git
+digtron https://github.com/minetest-mods/digtron.git

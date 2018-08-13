@@ -6,6 +6,6 @@ cat .config/modlist.txt | while read LINE; do
 	NAME="$( echo $LINE | cut -f1 -d' ' )"
 	REPO_URL="$( echo $LINE | cut -f2 -d' ' )"
 
-	./import.sh $NAME $REPO_URL
+	./import.sh -n $NAME -u $REPO_URL
 	echo
 done

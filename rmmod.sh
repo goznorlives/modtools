@@ -1,7 +1,5 @@
 #! /bin/bash
 
-. .config/config
-
 while getopts 'n:' OPT; do
 	case ${OPT} in
 		n)
@@ -15,10 +13,8 @@ if [ -z ${NAME} ]; then
 	echo "${0##/} [-n <mod name>]" >&2
 	exit 1
 fi
-if ! [ -d $MODROOT/$NAME ]; then
-	echo "Mod $NAME does not exist!"
-	exit 1
-fi
 
-echo UPDATE $NAME
-( cd $MODROOT/$NAME; git pull --ff-only)
+cp -f .config/modlist.txt modlist.bak
+(cat .config/modlist.txt | grep -v $NAME) > .config/modlist.new
+mv -f .config/modlist.new .config/modlist.txt
+git add .config/modlist.txt
