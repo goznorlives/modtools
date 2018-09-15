@@ -1,4 +1,4 @@
 #! /bin/bash
 
-MODS_ROOT=$MINETEST_ROOT/mods
-MODLIST=$MODTOOLS_ROOT/.config/modlist.txt
+export MODS_ROOT=${MINETEST_HOME}/mods
+export MODLIST=${MODTOOLS_ROOT}/.config/modlist.txt
