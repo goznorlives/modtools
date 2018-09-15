@@ -1,5 +1,10 @@
 #! /bin/bash
 
+. ${MODTOOLS_ROOT}/.config/config
+
+MODLIST_BAK=${MODTOOLS_ROOT}/modlist.bak
+MODLIST_TMP=${MODTOOLS_ROOT}/.config/~modlist.txt
+
 while getopts 'n:u:' OPT; do
 	case ${OPT} in
 		n) NAME=${OPTARG}		;;
@@ -13,18 +18,18 @@ if [ -z ${NAME} ] || [ -z ${REPO_URL} ]; then
 	exit 1
 fi
 
-pushd .config > /dev/null
+pushd ${MODTOOLS_ROOT} > /dev/null
 
-if ! grep -q "$NAME" modlist.txt; then
-	if [ -f modlist.txt ]; then
-		cp -f modlist.txt ../modlist.bak
-		cp -f modlist.txt modlist.new
+if ! grep -q "${NAME}" ${MODLIST}; then
+	if [ -f ${MODLIST} ]; then
+		cp -f ${MODLIST} ${MODLIST_BAK}
+		mv ${MODLIST} ${MODLIST_TMP}
 	fi
 
-	echo "${NAME} ${REPO_URL}" >> modlist.new
-	cat modlist.new | sort | uniq > modlist.txt
-	rm modlist.new
-	git add modlist.txt
+	echo "${NAME} ${REPO_URL}" >> ${MODLIST_TMP}
+	cat ${MODLIST_TMP} | sort | uniq > ${MODLIST}
+	rm ${MODLIST_TMP}
+	git add ${MODLIST}
 fi
 
 popd > /dev/null

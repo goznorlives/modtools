@@ -1,11 +1,11 @@
 #! /bin/bash
 
-. .config/config
+. ${MODTOOLS_ROOT}/.config/config
 
-cat .config/modlist.txt | while read LINE; do
-	NAME="$( echo $LINE | cut -f1 -d' ' )"
-	REPO_URL="$( echo $LINE | cut -f2 -d' ' )"
+cat ${MODLIST} | while read LINE; do
+	NAME="$( echo ${LINE} | cut -f1 -d' ' )"
+	REPO_URL="$( echo ${LINE} | cut -f2 -d' ' )"
 
-	./import.sh -n $NAME -u $REPO_URL
+	${MODTOOLS_ROOT}/import.sh -n ${NAME} -u ${REPO_URL}
 	echo
 done

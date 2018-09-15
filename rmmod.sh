@@ -1,5 +1,10 @@
 #! /bin/bash
 
+. ${MODTOOLS_ROOT}/.config/config
+
+MODLIST_BAK=${MODTOOLS_ROOT}/modlist.bak
+MODLIST_TMP=${MODTOOLS_ROOT}.config/~modlist.txt
+
 while getopts 'n:' OPT; do
 	case ${OPT} in
 		n)
@@ -14,7 +19,8 @@ if [ -z ${NAME} ]; then
 	exit 1
 fi
 
-cp -f .config/modlist.txt modlist.bak
-(cat .config/modlist.txt | grep -v $NAME) > .config/modlist.new
-mv -f .config/modlist.new .config/modlist.txt
-git add .config/modlist.txt
+cp -f ${MODLIST} ${MODLIST_BAK}
+(cat ${MODLIST} | grep -v $NAME) > ${MODLIST_TMP}
+rm -f ${MODLIST}
+mv ${MODLIST_TMP} ${MODLIST}
+git add ${MODLIST}

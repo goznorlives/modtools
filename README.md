@@ -12,6 +12,10 @@ Scritps for managing and updating Minetest mods with git. Derived from work I di
 * rmmod.sh: remove a mod from the mod list
 
 Configuration:
+* Required environment variables:
+    * MINTETEST_HOME - Path to the directory where Minetest stores worlds, mods, 
+      etc.
+    * MODTOOLS_HOME - Path to the directory containing these scripts.
 * .config/config: configuration
-    * MODROOT - path to .minetest/mods
+    * MODS_ROOT - path to .minetest/mods
 * .config/modlist.txt: list of mods that have been/will be imported.

@@ -1,3 +1,4 @@
 #! /bin/bash
 
-MODROOT=$HOME/.minetest/mods
+MODS_ROOT=$MINETEST_ROOT/mods
+MODLIST=$MODTOOLS_ROOT/.config/modlist.txt
