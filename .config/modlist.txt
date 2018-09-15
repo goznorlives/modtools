@@ -1,7 +1,7 @@
 airtanks https://github.com/minetest-mods/airtanks.git
 anvil https://github.com/minetest-mods/anvil.git
 artdeco https://github.com/TumeniNodes/artdeco.git
-basic_robots https://github.com/ac-minetest/basic_robot.git
+basic_robot https://github.com/ac-minetest/basic_robot.git
 boost_cart https://github.com/SmallJoker/boost_cart.git
 bridges https://github.com/Sokomine/bridges.git
 bridgetool https://github.com/Kilarin/bridgetool.git

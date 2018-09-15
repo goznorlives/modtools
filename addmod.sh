@@ -3,7 +3,7 @@
 . ${MODTOOLS_ROOT}/.config/config
 
 MODLIST_BAK=${MODTOOLS_ROOT}/modlist.bak
-MODLIST_TMP=${MODTOOLS_ROOT}/.config/~modlist.txt
+MODLIST_TMP=${MODTOOLS_ROOT}/.config/modlist.tmp
 
 while getopts 'n:u:' OPT; do
 	case ${OPT} in
@@ -28,7 +28,7 @@ if ! grep -q "${NAME}" ${MODLIST}; then
 
 	echo "${NAME} ${REPO_URL}" >> ${MODLIST_TMP}
 	cat ${MODLIST_TMP} | sort | uniq > ${MODLIST}
-	rm ${MODLIST_TMP}
+	rm -f ${MODLIST_TMP}
 	git add ${MODLIST}
 fi
 

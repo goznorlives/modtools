@@ -3,7 +3,7 @@
 . ${MODTOOLS_ROOT}/.config/config
 
 MODLIST_BAK=${MODTOOLS_ROOT}/modlist.bak
-MODLIST_TMP=${MODTOOLS_ROOT}.config/~modlist.txt
+MODLIST_TMP=${MODTOOLS_ROOT}/.config/modlist.tmp
 
 while getopts 'n:' OPT; do
 	case ${OPT} in
@@ -20,7 +20,7 @@ if [ -z ${NAME} ]; then
 fi
 
 cp -f ${MODLIST} ${MODLIST_BAK}
-(cat ${MODLIST} | grep -v $NAME) > ${MODLIST_TMP}
+(cat ${MODLIST} | grep -v ${NAME}) > ${MODLIST_TMP}
 rm -f ${MODLIST}
 mv ${MODLIST_TMP} ${MODLIST}
 git add ${MODLIST}
