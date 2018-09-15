@@ -2,12 +2,8 @@
 
 while getopts 'n:u:' OPT; do
 	case ${OPT} in
-		n)
-			NAME=${OPTARG}
-			;;
-		u)
-			REPO_URL=${OPTARG}						
-			;;
+		n) NAME=${OPTARG}		;;
+		u) REPO_URL=${OPTARG}		;;
 	esac
 done
 shift $((OPTIND - 1))
@@ -17,13 +13,18 @@ if [ -z ${NAME} ] || [ -z ${REPO_URL} ]; then
 	exit 1
 fi
 
-if [ -f .config/modlist.txt ]; then
-	cp -f .config/modlist.txt modlist.bak
-	cp -f .config/modlist.txt .config/modlist.new
+pushd .config > /dev/null
+
+if ! grep -q "$NAME" modlist.txt; then
+	if [ -f modlist.txt ]; then
+		cp -f modlist.txt ../modlist.bak
+		cp -f modlist.txt modlist.new
+	fi
+
+	echo "${NAME} ${REPO_URL}" >> modlist.new
+	cat modlist.new | sort | uniq > modlist.txt
+	rm modlist.new
+	git add modlist.txt
 fi
 
-echo "${NAME} ${REPO_URL}" >> .config/modlist.new
-cat .config/modlist.new | uniq > .config/modlist.txt
-mv -f .config/modlist.new .config/modlist.txt
-git add .config/modlist.txt
-
+popd > /dev/null
