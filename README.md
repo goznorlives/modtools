@@ -1,6 +1,6 @@
 # Minetest Mod Management Scripts
  
-Scritps for managing and updating Minetest mods with git. Derived from work I did on a modpack before I realized that you can't access a modpack from within a modpack... Oops.
+Linux BASH scripts for managing and updating Minetest mods with git. Derived from work I did on a modpack before I realized that you can't access a modpack from within a modpack... Oops.
 
 * import.sh: import a mod into your Minetest mods directory
 * importall.sh: import all of the mods in modlist.txt at once
